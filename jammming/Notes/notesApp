@@ -1,0 +1,56 @@
+/*var array1 = [5, 12, 8, 130, 44];
+
+var found = array1.find(function(element) {
+  return element > 10;
+});
+
+console.log(found);
+// expected output: 12
+*/
+
+  
+addTrack(newTrack) {
+  let trackCheck = this.state.playlistTracks.find(savedTrack => {
+    return savedTrack.id === newTrack.id})
+
+  if (!trackCheck)
+  this.setState({playlistTracks: this.state.playlistTracks.push(newTrack)});
+  else {
+   return;
+  }
+}
+
+*********************
+/* var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// expected output: Array ["exuberant", "destruction", "present"]
+ */
+
+
+
+
+**********************************final copies
+ search(term) {
+   this.setState({searchResults:Spotify.search(term)});
+ }
+
+ addTrack(track) {
+     if (!this.state.playlistTracks.find(savedTrack => savedTrack.id === track)) {
+       this.setState({playlistTracks: this.state.playlistTracks.push(track)});
+     } else {
+       return;
+     }
+ }
+
+ removeTrack(track) {
+   this.state.playlistTracks.filter(badTrack => badTrack === track);
+ }
+
+ savePlaylist() {
+   let trackURIs = Spotify.savePlaylist();
+   this.setState({playlistName:'New Playlist',
+                  playlistTracks:[]})
+ }

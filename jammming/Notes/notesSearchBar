@@ -1,0 +1,36 @@
+search(term) {
+  this.props.onSearch(term.state)
+}
+
+
+task 71  handletermchange method
+
+
+finl copies
+**************************************
+
+constructor(props) {
+  super(props);
+
+
+  this.search = this.search.bind(this);
+  this.handleTermChange = this.handleTermChange.bind(this);
+
+}
+
+handleTermChange(event) {
+  this.props.onSearch({term:event.target.value})
+}
+
+search(term) {
+  this.props.onSearch(term.state.term);
+}
+
+render() {
+  return (
+    <div className="SearchBar">
+      <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange} />
+      <a>SEARCH</a>
+    </div>
+  );
+}
